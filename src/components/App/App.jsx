@@ -55,6 +55,7 @@ export class App extends Component {
           number={this.number}
           id={this.id}
         />
+        <h2 className="contact">Contacts</h2>
         <Filter hadleFilter={this.hadleFilter} filter={filter} />
         <ContactList
           contacts={contacts}

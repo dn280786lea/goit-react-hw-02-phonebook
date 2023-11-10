@@ -8,8 +8,7 @@ export const ContactList = ({ contacts, filter, onDelete }) => {
   );
 
   return (
-    <div>
-      <h2 className="contact">Contact</h2>
+    <div className="contactlist-list">
       {filteredContacts.map(({ name, number, id }) => (
         <ContactItem
           key={id}
