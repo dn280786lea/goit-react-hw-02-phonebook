@@ -1,0 +1,30 @@
+.phonebook-title {
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 20px;
+  text-align: center;
+}
+.phonebook-form {
+  display: flex;
+  padding-bottom: 40px;
+}
+
+.namebtn {
+  margin-left: 30px;
+  background-color: purple;
+  color: black;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  width: auto;
+}
+.namebtn:hover {
+  background-color: purple;
+  color: white;
+}
+.phonebook-name {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 20px;
+}
