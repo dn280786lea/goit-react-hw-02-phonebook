@@ -9,8 +9,14 @@ export const ContactList = ({ contacts, filter }) => {
   return (
     <div>
       <h2>Contact</h2>
-      {filteredContacts.map(({ name, number, id }) => (
-        <ContactItem key={id} name={name} id={id} number={number} />
+      {filteredContacts.map(({ name, number, id, onDelete }) => (
+        <ContactItem
+          key={id}
+          name={name}
+          id={id}
+          number={number}
+          delete={onDelete}
+        />
       ))}
     </div>
   );
