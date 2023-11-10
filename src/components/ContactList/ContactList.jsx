@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { ContactItem } from 'components/ContactItem/ContactItem';
+import {} from './ContactList.css';
 
 export const ContactList = ({ contacts, filter, onDelete }) => {
   const filteredContacts = contacts.filter(contact =>
@@ -8,7 +9,7 @@ export const ContactList = ({ contacts, filter, onDelete }) => {
 
   return (
     <div>
-      <h2>Contact</h2>
+      <h2 className="contact">Contact</h2>
       {filteredContacts.map(({ name, number, id }) => (
         <ContactItem
           key={id}

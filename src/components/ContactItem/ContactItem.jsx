@@ -1,11 +1,12 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import {} from './ContactItem.css';
 
 export const ContactItem = ({ id, name, number, onDelete }) => {
   return (
     <div>
-      <span>{name}: </span>
-      <span>{number}</span>
+      <span className="item">{name}: </span>
+      <span className="item">{number}</span>
       <button className="deletebtn" type="button" onClick={() => onDelete(id)}>
         Delete
       </button>

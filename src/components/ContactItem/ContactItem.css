@@ -1,14 +1,4 @@
-.phonebook-title {
-  font-size: 26px;
-  font-weight: 900;
-  line-height: 20px;
-}
-.phonebook-form {
-  display: flex;
-  padding-bottom: 40px;
-}
-
-.namebtn {
+.deletebtn {
   margin-left: 20px;
   background-color: purple;
   color: black;
@@ -18,12 +8,16 @@
   line-height: 20px;
   width: 80px;
 }
-.namebtn:hover {
+
+.deletebtn:hover {
   background-color: purple;
   color: white;
 }
-.phonebook-name {
-  font-size: 18px;
-  font-weight: 600;
+
+.item {
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
   line-height: 20px;
+  line-height: 1.5;
 }
