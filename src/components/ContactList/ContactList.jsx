@@ -1,12 +1,9 @@
 import PropTypes from 'prop-types';
 import { ContactItem } from 'components/ContactItem/ContactItem';
-import {} from './ContactList.css';
+import React from 'react';
+import './ContactList.css';
 
-export const ContactList = ({ contacts, filter, onDelete }) => {
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
-
+export const ContactList = ({ filteredContacts, onDelete }) => {
   return (
     <div className="contactlist-list">
       {filteredContacts.map(({ name, number, id }) => (
@@ -23,12 +20,11 @@ export const ContactList = ({ contacts, filter, onDelete }) => {
 };
 
 ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
+  filteredContacts: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
       number: PropTypes.string,
       id: PropTypes.string,
     })
   ).isRequired,
-  filter: PropTypes.string.isRequired,
 };

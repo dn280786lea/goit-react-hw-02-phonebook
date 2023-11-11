@@ -1,28 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Filter.css';
 
-export const Filter = ({ filter, hadleFilter }) => {
+export const Filter = ({ filter, handleFilter }) => {
   return (
     <div>
-      <label htmlFor="filter">Find contacts by name </label>
+      <label className="filter-contact" htmlFor="filter">
+        Find contacts by name{' '}
+      </label>
       <input
-        type="search"
-        id="filter"
-        name="filter"
-        required
-        onChange={hadleFilter}
-        placeholder="Search"
-        pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+        type="text"
+        value={filter}
+        onChange={handleFilter}
+        placeholder="Find contacts by name"
       />
     </div>
   );
 };
-/*           {
-            filteredContacts.map(contact => (
-              <li key={contact.id}>{`${contact.name} : ${contact.number}`}</li>
-            ));
-          } */
+
 Filter.propTypes = {
-  hadleFilter: PropTypes.func.isRequired,
+  handleFilter: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
 };

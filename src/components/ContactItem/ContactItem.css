@@ -21,3 +21,11 @@
   line-height: 20px;
   line-height: 1.5;
 }
+.contact-item {
+  display: flex;
+  -moz-box-pack: justify;
+  justify-content: space-between;
+  -moz-box-align: center;
+  align-items: center;
+  padding: 8px;
+}

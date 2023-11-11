@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
-import {} from './ContactForm.css';
+import './ContactForm.css';
 
-export const ContactForm = ({ handleSubmit, handleChange }) => {
+export const ContactForm = ({ handleSubmit }) => {
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+
   const nameId = nanoid();
   const numberId = nanoid();
 
+  const onSubmit = evt => {
+    evt.preventDefault();
+    const newContact = { name, id: nanoid(), number };
+    handleSubmit(newContact);
+
+    setName('');
+    setNumber('');
+  };
+
+  const handleNameChange = e => {
+    setName(e.target.value);
+  };
+
+  const handleNumberChange = e => {
+    setNumber(e.target.value);
+  };
+
   return (
     <div className="phonebook-form">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={onSubmit}>
         <h1 className="phonebook-title">Phonebook</h1>
         <div>
           <label className="phonebook-name" htmlFor="name">
@@ -18,8 +38,8 @@ export const ContactForm = ({ handleSubmit, handleChange }) => {
           <input
             type="text"
             id={nameId}
-            name="name"
-            onChange={handleChange}
+            value={name}
+            onChange={handleNameChange}
             required
             pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           />
@@ -29,8 +49,8 @@ export const ContactForm = ({ handleSubmit, handleChange }) => {
           <input
             type="text"
             id={numberId}
-            name="number"
-            onChange={handleChange}
+            value={number}
+            onChange={handleNumberChange}
             required
             pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
           />
@@ -46,5 +66,4 @@ export const ContactForm = ({ handleSubmit, handleChange }) => {
 
 ContactForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
 };
