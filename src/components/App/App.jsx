@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Filter } from '../Filter/Filter';
-import { ContactForm } from '../ContactForm/ContactForm';
+import { nanoid } from 'nanoid';
+import ContactForm from '../ContactForm/ContactForm';
 import { ContactList } from '../ContactList/ContactList';
 import './App.css';
 
@@ -25,24 +26,19 @@ export class App extends Component {
     }));
   };
 
-  handleSubmit = ({ name, number, id }) => {
-    const { contacts } = this.state;
+  handleSubmit = ({ name, number }) => {
+    const isExist = this.state.contacts.some(contact => contact.name === name);
 
-    const isExist = contacts.some(contact => contact.name === name);
     if (isExist) {
       alert(`${name} is already in contacts`);
       return;
     }
 
-    const newContact = {
-      name,
-      number,
-      id,
-    };
-
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, newContact],
-    }));
+    this.setState(prevState => {
+      return {
+        contacts: [...prevState.contacts, { name, number, id: nanoid() }],
+      };
+    });
   };
 
   render() {
